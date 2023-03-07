@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+
+<body>
+  <div class="bg-container">
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
+  </div>
+  <div class="main">
+    <div class="cards">
+      <div class="top-card">
+        <div class="logo-container"> <!-- I was goofy enough not to notice that they've included the card logo in the design files.. So I've created the logo via code. -->
+          <div class="logo-left"></div>
+          <div class="logo-right"></div>
+        </div>
+        <div class="number-container">
+          <div class="on-card-number">0000</div>
+          <div class="on-card-number">0000</div>
+          <div class="on-card-number">0000</div>
+          <div class="on-card-number">0000</div>
+        </div>
+        <div class="name-and-exp-container">
+          <div class="on-card-name">JOHN DOE</div>
+          <div class="on-card-expiration">
+            <div class="on-card-month">00/</div>
+            <div class="on-card-year">00</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-card">
+        <div class="on-card-cvc">000</div>
+      </div>
+    </div>
+    <div class="form-container">
+      <form action="/" novalidate class="card-data-form">
+      <div class="card-name">
+        <label for="name">CARDHOLDER NAME</label>
+        <input class="form-control" id="name" type="text" placeholder="e.g. John Doe">
+        <div id="name-input-feedback" class="invalid-input-feedback hidden"></div>
+      </div>
+      <div class="card-number">
+        <label for="number">CARD NUMBER</label>
+        <input class="form-control" id="number" type="text" placeholder="e.g. 1234 5678 9123 0000"  maxlength="19">
+        <div id="number-input-feedback" class="invalid-input-feedback hidden"></div>
+      </div>
+      <div class="date-cvc">
+        <div class="date">
+          <label for="date">EXP. DATE (MM/YY)</label>
+          <div class="date-input" id="date">
+            <div class="month-input">
+          <input class="form-control" id="month" type="text" placeholder="MM" maxlength="2">
+          <div id="date-input-feedback" class="invalid-input-feedback hidden"></div>
+        </div>
+            <div class="year-input">
+          <input class="form-control form-control-lg" id="year" type="text" placeholder="YY" maxlength="2">
+            </div>
+          </div>
+        </div>
+        <div class="cvc">
+          <label for="cvc">CVC</label>
+          <input class="form-control" id="cvc" type="text" placeholder="e.g. 123" maxlength="3">
+          <div id="cvc-input-feedback" class="invalid-input-feedback hidden"></div>
+        </div>
+      </div>
+      <button class="submit-btn">Confirm</button>
+      </form>
+      <div class="on-success-container hidden">
+        <img src="images/icon-complete.svg" alt="">
+        <h1>THANK YOU!</h1>
+        <h2>We've added your card details</h2>
+        <button id="success-btn">Continue</button>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+
+ 
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+
+  </div> -->
+  <script src="app.js"></script>
+</body>
+</html>
