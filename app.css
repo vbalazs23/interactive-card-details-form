@@ -1,0 +1,464 @@
+/* General cleanups and adjustments */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    height: 100vh;
+    display: flex;
+    padding-top: 0.1px; /* Collapsing margins ain't gonna get me */
+    background-color: hsl(0, 0%, 100%);
+}
+
+.bg-container {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.bg-left {
+    background-image: url('images/bg-main-desktop.png');
+    height: inherit;
+    width: 33vw;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.bg-right {
+    background-color: hsl(0, 0%, 100%);
+    height: inherit;
+    width: auto;
+    display: none;
+}
+
+.main {
+    width: 75vw;
+    height: fit-content;
+    align-self: center;
+    margin: 0 auto;
+    display: flex;
+}
+
+.cards {
+    display: grid;
+    width: 50%;
+    height: 65vh;
+    grid-template-columns: repeat(4, 1fr);
+    margin-right: 5em;
+}
+
+.top-card {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-image: url('images/bg-card-front.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 2em;
+    max-height: 15em;
+    margin-bottom: 2em;
+    min-width: 27em;
+    max-width: 27em;
+}
+
+.logo-container {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 3.5em;
+}
+
+.logo-left {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 3.5em;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.logo-right {
+    width: 1.5em;
+    height: 1.5em;
+    margin: auto 0;
+    border: 1px solid hsl(0, 0%, 100%);
+    border-radius: 1.5em;
+}
+
+.number-container {
+    display: flex;
+    gap: 1em;
+    max-height: fit-content;
+    margin-bottom: 1em;
+}
+
+.on-card-number{
+    color: hsl(0, 0%, 100%);
+    font-size: 1.5em;
+    letter-spacing: 3px;
+    padding: 0;
+    margin: 0;
+}
+
+.name-and-exp-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.on-card-name,
+.on-card-expiration > * {
+    font-size: 0.9em;
+    letter-spacing: 2px;
+    color: hsl(0, 0%, 100%);
+}
+
+.on-card-expiration {
+    display: flex;
+}
+
+.bottom-card {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    background-image: url('images/bg-card-back.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 15em;
+    max-height: 15em;
+    min-width: 27em;
+    max-width: 27em;
+    padding: 2em;
+    display: flex;
+}
+
+.on-card-cvc {
+    margin: 4.6em 0 0 20em;
+    color: hsl(0, 0%, 100%);
+    letter-spacing: 3px;
+}
+
+.form-container {
+    width: 50%;
+    padding: 7em 2em 5em 8em;
+    display: flex;
+    flex-direction: column;
+}
+.form-control {
+    width: 100%;
+    padding: 0.75em 1em;
+    font-size: 1em;
+    border: 1px solid hsl(270, 3%, 87%);
+    border-radius: 8px;
+    color: hsl(278, 68%, 11%);
+}
+
+.form-control::placeholder {
+    color: hsl(270, 3%, 87%);
+    opacity: 1;
+    font-size: 1em;
+}
+
+.form-control:focus {
+    outline: none;
+    border: 1px solid hsl(278, 94%, 30%);
+}
+
+.form-control:hover {
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    color: hsl(278, 68%, 11%);
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    margin-bottom: 0.5em;
+}
+
+.date-cvc {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.date input {
+    width: 4em;
+}
+
+.date-input {
+    display: flex;
+}
+
+.date-input input:first-of-type {
+    margin-right: 0.5em;
+}
+
+.card-name,
+.card-number {
+    margin-bottom: 2em;
+}
+
+.cvc {
+    width: 100%;
+}
+
+.submit-btn,
+#success-btn  {
+    width: 100%;
+    padding: 1em;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    border-radius: 0.5em;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(278, 68%, 11%);
+}
+.submit-btn,
+#success-btn:hover {
+    cursor: pointer;
+}
+
+.invalid-input-feedback {
+    margin-top: 0.5em;
+    color: hsl(0, 100%, 66%);
+    font-size: 0.7em;
+    position: absolute;
+}
+
+/* Success state */
+.on-success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 3em 0 0;
+}
+
+.on-success-container img {
+    height: 5em;
+    width: 5em;
+    margin-bottom: 2em;
+}
+
+.on-success-container h1 {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+}
+
+.on-success-container h2 {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 2em;
+    color: hsla(0, 0%, 68%, 1);
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+/* Attribution/coded by section at the bottom of the page */
+.attribution { 
+    font-size: 11px; 
+    text-align: center;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Responsive design */
+
+@media (max-width: 1600px) {
+    .form-container {
+        padding-right: 0;
+    }
+}
+
+@media (min-width: 1250px) and (max-width: 1440px) {
+    .main {
+        width: 80vw;
+        margin: 0 auto;
+    }
+    .cards {
+        margin-right: 0;
+        height: 55vh;
+    }
+    .top-card,
+    .bottom-card {
+        min-width: 24em;
+        max-height: 14em;
+    }
+    .top-card .logo-left {
+        height: 2.5em;
+        width: 2.5em;
+    }
+    .top-card .logo-right {
+        height: 1.2em;
+        width: 1.2em;
+    }
+    .top-card .number-container {
+        margin-bottom: 1.2em;
+    }
+    .top-card .on-card-number {
+        font-size: 1.4em;
+    }
+    .bottom-card .on-card-cvc {
+        margin: 4.3em 0 0 17em;
+    }
+    
+}
+
+@media (min-width: 1001px) and (max-width: 1249px) {
+    .main {
+        width: 90vw;
+        margin: 0 auto;
+    }
+    .cards {
+        margin-right: 0;
+        height: 55vh;
+    }
+    .top-card,
+    .bottom-card {
+        min-width: 21em;
+        max-width: 21em;
+        max-height: 12em;
+    }
+    .logo-container {
+        margin-bottom: 2.3em;
+    }
+    .top-card .logo-left {
+        height: 2.2em;
+        width: 2.2em;
+    }
+    .top-card .logo-right {
+        height: 1.1em;
+        width: 1.1em;
+    }
+    .top-card .number-container {
+        margin-bottom: 1.7em;
+    }
+    .top-card .on-card-number {
+        font-size: 1.1em;
+    }
+    .on-card-name, .on-card-expiration > * {
+        font-size: 0.8em;
+    }
+    .bottom-card .on-card-cvc {
+        margin: 3.3em 0 0 14em;
+    }
+    .form-container {
+        padding: 5em 0 3em 8em;;
+    }
+    .form-control,
+    .form-control::placeholder {
+        font-size: 0.85em;
+    }
+    .submit-btn,
+    #success-btn {
+        font-size: 0.65em;
+}
+
+}
+
+@media (max-width: 1000px) {
+    body {
+        font-size: 18px;
+    }
+    .bg-container {
+        flex-direction: column;
+        height: 100vh;
+    }
+    .bg-left {
+        width: 100vw;
+        height: 15em;
+    }
+    .main {
+        align-self: none;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+    }
+    .cards {
+        display: flex;
+        width: fit-content;
+        height: 20em;
+        min-height: 20em;
+        margin: 3em auto 0 auto;
+        padding: 0 2em;
+        flex-direction: column;
+    }
+    .bottom-card,
+    .top-card {
+    min-height: 10em;
+    max-height: 10em;
+    max-width: 17em;
+    min-width: 17em;
+    }
+    .on-card-cvc {
+        margin: 2.7em 0 0 12.7em;
+        font-size: 0.85em;
+    }
+    .bottom-card {
+        order: 1;
+        margin-left: 5em;
+    }
+    .top-card {
+        padding: 1em;
+        order: 2;
+        margin: -5em 0 0 0;
+    }
+    .logo-container {
+        margin-bottom: 2.5em;
+    }
+    .logo-left {
+        height: 2.5em;
+        width: 2.5em;
+    }
+    .logo-right {
+        height: 1em;
+        width: 1em;
+    }
+
+    .number-container {
+        margin-bottom: 1em;
+        gap: 0.7em;
+    }
+    .on-card-number {
+        font-size: 1em;
+    }
+    .form-container {
+        width: 100%;
+        padding: 0 2em;
+    }
+    .on-card-name, .on-card-expiration > * {
+        font-size: 0.75em;
+    }
+    .form-container {
+        padding: 0.1px 0 0 0;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 470px) {
+    body {
+        font-size: 0.9rem;
+    }
+    .number-container {
+        gap: 0.5em;
+    }
+    .on-success-container {
+        padding: 2em;
+    }
+}
+
+
+
